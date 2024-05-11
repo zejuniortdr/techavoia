@@ -20,7 +20,6 @@ A interface mais simples do que as telas de chatbots atuais visa atender a todos
 - numpy
 - pandas
 
-
 ## Pre-requisitos:
 - Docker
 
@@ -43,3 +42,5 @@ A interface mais simples do que as telas de chatbots atuais visa atender a todos
 - [x] Criação de conteúdo através da AI com GenerativeModel feito [aqui](https://github.com/zejuniortdr/techavoia/blob/2199d5b998321742e5e69a8c1cfd728bb8e906e4/apps/clients/aistudio.py#L28-L39) e invocado [aqui](https://github.com/zejuniortdr/techavoia/blob/34cf0406fe8b4736df1feb7aa9358e491c36462a/apps/articles/models.py#L46)
 - [x] Relacionamento dos conteúdos gerados com outros previamente salvos através das gerações de embeddings feito [aqui](https://github.com/zejuniortdr/techavoia/blob/2199d5b998321742e5e69a8c1cfd728bb8e906e4/apps/clients/aistudio.py#L41-L62) e invocado [aqui](https://github.com/zejuniortdr/techavoia/blob/34cf0406fe8b4736df1feb7aa9358e491c36462a/apps/articles/tasks.py#L45)
 - [x] Submissão do projeto através do formulário entre os dias 09/05 e 11/05, até as 23h59.
+![image](https://github.com/zejuniortdr/techavoia/assets/1136994/d72db064-a10c-4bb6-a30a-eec17ed10fad)
+
