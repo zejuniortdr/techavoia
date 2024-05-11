@@ -31,15 +31,15 @@ A interface mais simples do que as telas de chatbots atuais visa atender a todos
 3. Rode `make setup` para criar o `.env` e o configue com suas chaves
 4. Para subir o container, execute o comando `make`
 5. Ao final do processo, acesse seu navegador com o endereço `http://localhost:9000` para a interface de usuário
-6. Caso queira ver a interface adminsitrativa, acesse `http://localhost:9000/admin`
-7. Para criação das credenciais do admin, execute o comando `make create_admin` com o container rodando
+6. Caso queira ver a interface adminsitrativa, acesse `http://localhost:9000/admin` com usuario `root` e senha `123`
+7. Para criação de novas credenciais do admin, execute o comando `make create_admin` com o container rodando
 8. Para parar o serviço, execute comando `make stop`
 
 
 ## Requisitos para avaliação do projeto:
 - [x] Subir em um repositório do Github
 - [x] Desenvolva um Projeto Relacionado à Aula 4 e/ou Aula 5 da Imersão IA 2ª Edição
-- [x] Utilização da API KEY [feito aqui](https://)
-- [x] Criação de conteúdo através da AI com GenerativeModel [feito aqui](https://)
-- [x] Relacionamento dos conteúdos gerados com outros previamente salvos através das gerações de embeddings [feito aqui](https://)
+- [x] Utilização da API KEY [feito aqui](https://github.com/zejuniortdr/techavoia/blob/0ef52fb44eea92cf3feab1a424ef3e21c796352d/apps/clients/aistudio.py#L11)
+- [x] Criação de conteúdo através da AI com GenerativeModel feito [aqui](https://github.com/zejuniortdr/techavoia/blob/2199d5b998321742e5e69a8c1cfd728bb8e906e4/apps/clients/aistudio.py#L28-L39) e invocado [aqui](https://github.com/zejuniortdr/techavoia/blob/34cf0406fe8b4736df1feb7aa9358e491c36462a/apps/articles/models.py#L46)
+- [x] Relacionamento dos conteúdos gerados com outros previamente salvos através das gerações de embeddings feito [aqui](https://github.com/zejuniortdr/techavoia/blob/2199d5b998321742e5e69a8c1cfd728bb8e906e4/apps/clients/aistudio.py#L41-L62) e invocado [aqui](https://github.com/zejuniortdr/techavoia/blob/34cf0406fe8b4736df1feb7aa9358e491c36462a/apps/articles/tasks.py#L45)
 - [x] Submissão do projeto através do formulário entre os dias 09/05 e 11/05, até as 23h59.

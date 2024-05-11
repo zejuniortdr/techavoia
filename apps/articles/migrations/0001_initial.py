@@ -7,25 +7,32 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Article',
+            name="Article",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=128)),
-                ('slug', models.SlugField(max_length=64, null=True, unique=True)),
-                ('summary', models.TextField(blank=True, null=True)),
-                ('text', models.TextField(blank=True, null=True)),
-                ('date_added', models.DateField(auto_now_add=True)),
-                ('public', models.BooleanField(default=False)),
-                ('views', models.IntegerField(default=0)),
-                ('likes', models.IntegerField(default=0)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=128)),
+                ("slug", models.SlugField(max_length=64, null=True, unique=True)),
+                ("summary", models.TextField(blank=True, null=True)),
+                ("text", models.TextField(blank=True, null=True)),
+                ("date_added", models.DateField(auto_now_add=True)),
+                ("public", models.BooleanField(default=False)),
+                ("views", models.IntegerField(default=0)),
+                ("likes", models.IntegerField(default=0)),
             ],
             options={
-                'ordering': ['-date_added'],
+                "ordering": ["-date_added"],
             },
         ),
     ]

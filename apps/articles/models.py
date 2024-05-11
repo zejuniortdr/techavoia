@@ -1,9 +1,7 @@
+from apps.debug.services import log
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-
-from apps.debug.services import log
-
 
 
 class Article(models.Model):
@@ -20,11 +18,10 @@ class Article(models.Model):
     ranking = models.IntegerField(default=0)
 
     class Meta:
-        ordering = ['-date_added']
+        ordering = ["-date_added"]
 
     def __str__(self):
         return self.title
-
 
     def save(self, *args, **kwargs):
         need_content = False
@@ -46,13 +43,9 @@ class Article(models.Model):
             create_content.delay(self.pk)
             get_related.delay(self.pk)
 
-
-
-
-
     def update_content(self, *args, **kwargs):
         log("16 update content")
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('articles:detail', kwargs={'slug': self.slug})
+        return reverse("articles:detail", kwargs={"slug": self.slug})

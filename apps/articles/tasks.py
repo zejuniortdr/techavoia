@@ -1,9 +1,9 @@
-from django.db.models import Q
-from celery_worker import app
-
 from apps.clients.aistudio import AIStudioClient
-from .models import Article
 from apps.debug.services import log
+from celery_worker import app
+from django.db.models import Q
+
+from .models import Article
 
 
 @app.task(ignore_result=True)
@@ -27,17 +27,17 @@ def create_content(article_id):
 
     article.update_content()
 
+
 @app.task(ignore_result=True)
 def get_related(article_id):
     article = Article.objects.get(id=article_id)
     documents = list(
-        Article.objects.values("id","title", "summary")
-        .exclude(
-            Q(id=article_id) |
-            Q(title__isnull=True) |
-            Q(slug__isnull=True) |
-            Q(summary__isnull=True) |
-            Q(public=False)
+        Article.objects.values("id", "title", "summary").exclude(
+            Q(id=article_id)
+            | Q(title__isnull=True)
+            | Q(slug__isnull=True)
+            | Q(summary__isnull=True)
+            | Q(public=False)
         )
     )
 
