@@ -46,3 +46,7 @@ A interface mais simples do que as telas de chatbots atuais visa atender a todos
 ![image](https://github.com/zejuniortdr/techavoia/assets/1136994/d72db064-a10c-4bb6-a30a-eec17ed10fad)
 
 [Link da mensagem no discord](https://discordapp.com/channels/1228404913705451612/1228406162618060913/1238742276847697931)
+
+
+## Demo
+- https://www.youtube.com/watch?v=f1X-pp4SEPg&ab_channel=JoseLuisdaCruzJunior
