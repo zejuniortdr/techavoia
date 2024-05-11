@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('/static/assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>TechAvoIA</h1>
+                        <span class="subheading">O assistente inteligente para todas as idades</span>
+                    </div>
+                </div>
+            </div>
+            <form method="post" action="{% url 'articles:new' %}">
+                <div class="row gx-4 gx-lg-5 justify-content-center py-4">
+                    {% csrf_token %}
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <input type="text" class="form-control py-3" name="title" id="id_title" placeholder="O que gostaria de saber?">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">Pesquisar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                {% for article in articles %}
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="{% url 'articles:detail' article.slug %}">
+                            <h2 class="post-title">{{ article.title }}</h2>
+                            <h3 class="post-subtitle">{{ article.summary }}</h3>
+                        </a>
+                        <p class="post-meta">
+                            {{ article.date_added|date:"d/M/Y"}} -
+                            {{ article.views }} visualizaç{{ article.views|pluralize:"ão,ões"}} -</span>
+                            {{ article.likes }} like{{ article.likes|pluralize}} -</span>
+                            {{ article.dislikes }} dislike{{ article.dislikes|pluralize}}</span>
+                        </p>
+                    </div>
+
+                    {% if not forloop.last %}
+                        <!-- Divider-->
+                        <hr class="my-4" />
+                    {% endif %}
+                {% endfor %}
+                <!-- Pager-->
+                {% if is_paginated %}
+                    <div class="d-flex justify-content-center mb-12">
+                        {% if page_obj.has_previous %}
+                            <a class="btn btn-primary text-uppercase" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                        {% endif %}
+
+                        <a class="page-item p-3" href="#">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</a>
+
+                        {% if page_obj.has_next %}
+                            <a class="btn btn-primary text-uppercase" href="?page={{ page_obj.next_page_number }}">Próxima</a>
+                        {% endif %}
+                    </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

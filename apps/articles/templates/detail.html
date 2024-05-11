@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load markdownify %}
+
+{% block extra_js %}
+    {% if not article.text %}
+        <script>
+            // Iniciar o polling
+            const polling = setInterval(shortPolling, interval);
+        </script>
+    {% endif %}
+{% endblock extra_js %}
+
+{% block content %}
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('/static/assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>{{ article.title }}</h1>
+                        <h2 class="subheading" id="subheading">{% if article.summary %}{{ article.summary }}{% endif %}</h2>
+                        <span class="meta">
+                            {{ article.date_added|date:"d \d\e F \d\e Y"}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="text-end">
+                <span id="likes" class="px-3">{{ article.likes }}</span>
+                <a class="button-like" onclick="like(); return false;"><i class="fa-solid fa-thumbs-up"></i></a>
+                <span id="dislikes" class="px-3">{{ article.dislikes }}</span>
+                <a class="button-like" onclick="dislike(); return false;"><i class="fa-solid fa-thumbs-down"></i></a>
+                <span class="px-3">{{ article.views }}</span>
+                <i class="fa-solid fa-eye"></i>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7" id="text_content">
+                    {% if article.text %}
+                        {{ article.text|markdownify|linebreaksbr }}
+                    {% else %}
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <p>Conteúdo ainda sendo gerado pela inteligência artifical.</p>
+                        <p>Aguarde alguns instantes ou clique no botão abaixo para recarregar a página.<p>
+                        <p><a href="{% url 'articles:detail' article.slug %}" class="btn btn-primary btn-xl text-uppercase">Recarregar</a></p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </article>
+    {% if related %}
+        <div class="container px-4 py-5" id="featured-3">
+            <h3 class="pb-2 border-bottom">Veja outros conteúdos relacionados:</h2>
+            <div class="row g-4 py-5 row-cols-1">
+                {% for rel in related %}
+                    <div class="feature col">
+                        <h4 class="fs-2 text-body-emphasis">
+                            <a href="{% url 'articles:detail' rel.slug %}" class="icon-link">{{ rel.title }}</a>
+                        </h4>
+                        <p>{{ rel.summary }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}

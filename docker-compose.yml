@@ -1,0 +1,42 @@
+services:
+  app:
+    container_name: app
+    command: local
+    build:
+      context: .
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/app
+    networks:
+      - public
+      - private
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  celery:
+    build: .
+    command: celery -A myproject worker --loglevel=INFO
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    networks:
+      - private
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    networks:
+      - private
+      - public
+    ports:
+      - "6379:6379"
+
+
+networks:
+  public:
+  private:

@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+google-generativeai = "*"
+django = "*"
+prettyconf = "*"
+whitenoise = "*"
+django-markdownify = "*"
+celery = "*"
+redis = "*"
+pandas = "*"
+numpy = "*"
+
+[dev-packages]
+pre-commit = "*"
+ipython = "*"
+
+[requires]
+python_version = "3.10"
