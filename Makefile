@@ -1,6 +1,6 @@
 
 run:
-	docker compose up
+	docker compose up -d
 
 
 stop:
@@ -8,13 +8,13 @@ stop:
 
 
 create_admin:
-	docker compose exec app python /app/manage.py createsuperuser
+	docker compose exec app python manage.py createsuperuser
 
 load_fixtures:
-	docker compose exec app python /app/manage.py loaddata /app/articles/fixtures/initial_data.json
+	docker compose exec app python manage.py loaddata apps/articles/fixtures/initial_data.json
 
 dumpdata:
-	docker compose exec app python /app/manage.py dumpdata articles > /app/articles/fixtures/initial_data.json
+	docker compose exec app python manage.py dumpdata articles > apps/articles/fixtures/initial_data.json
 
 setup:
 	cp .env-example .env
