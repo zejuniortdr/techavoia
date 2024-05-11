@@ -1,3 +1,4 @@
+
 run:
 	docker compose up
 
@@ -14,3 +15,6 @@ load_fixtures:
 
 dumpdata:
 	docker compose exec app python /app/manage.py dumpdata articles > /app/articles/fixtures/initial_data.json
+
+setup:
+	cp .env-example .env

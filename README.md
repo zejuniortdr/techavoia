@@ -28,11 +28,12 @@ A interface mais simples do que as telas de chatbots atuais visa atender a todos
 ## Setup do projeto:
 1. Clone ou faça download deste repositório
 2. Acesse a pasta techavoia através do comando `cd techavoia`
-3. Para subir o container, execute o comando `make`
-4. Ao final do processo, acesse seu navegador com o endereço `http://localhost:9000` para a interface de usuário
-5. Caso queira ver a interface adminsitrativa, acesse `http://localhost:9000/admin`
-6. Para criação das credenciais do admin, execute o comando `make create_admin` com o container rodando
-7. Para parar o serviço, execute comando `make stop`
+3. Rode `make setup` para criar o `.env` e o configue com suas chaves
+4. Para subir o container, execute o comando `make`
+5. Ao final do processo, acesse seu navegador com o endereço `http://localhost:9000` para a interface de usuário
+6. Caso queira ver a interface adminsitrativa, acesse `http://localhost:9000/admin`
+7. Para criação das credenciais do admin, execute o comando `make create_admin` com o container rodando
+8. Para parar o serviço, execute comando `make stop`
 
 
 ## Requisitos para avaliação do projeto:
