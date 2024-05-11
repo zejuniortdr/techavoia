@@ -1,7 +1,7 @@
 # TechAvoIA
 
 ## O que é:
-O TechAvoIA é uma interface amigável para apoio em problemas cotidianos relacionadios a tecnologia, porém não limitado a este contexto e com público-alvo desde crianças até idosos, com ou sem conhecimentos técnicos, para que todos tenham um passo a passo bem explicado de como resolver problemas como: como parear um fone bluetooth com um celular, como resetar de fábrica um celular, como fazer fórmulas no excel, como configurar uma impressora, etc.
+O TechAvoIA é uma interface amigável para apoio em problemas cotidianos relacionadios a tecnologia, porém não limitado a este contexto, com público-alvo desde crianças até idosos, com ou sem conhecimentos técnicos, para que todos tenham um passo a passo bem explicado de como resolver problemas como: como parear um fone bluetooth com um celular, como resetar de fábrica um celular, como fazer fórmulas no excel, como configurar uma impressora, etc.
 
 
 ## Como funciona:
